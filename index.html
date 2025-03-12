@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="DexScale introduces a method wherein the simulator serves as a data engine, enabling the scaling of data for Sim-to-Real transfer">
+  <meta name="keywords" content="Simulator, Data Engine, Sim-to-Real">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DexScale: Automating Data Scaling for Sim2Real Generalizable Robot Skills</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">DexScale: Automating Data Scaling for Sim2Real Generalizable Robot Skills</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              Anonymous Authors<sup>1</sup></span>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Anonymous Institution</span>
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            A critical prerequisite for achieving generalizable robot control is the availability
+            of a large-scale robot training dataset. Due to the expense of collecting realistic 
+            robotic data, recent studies explored simulating and recording robot skills in vir-
+            tual environments. While simulated data can be generated at higher speeds, 
+            lower costs, and larger scales, the applicability of such simulated data remains questionable due to the gap of between
+            simulated and realistic environments. 
+          </p>
+            
+          <p>
+            To advance the Sim2Real generalization, in this study, we present DexScale, a 
+            data engine designed to perform automatic skills simulation and scaling for
+            learning deployable robot manipulation policies. Specifically, DexScale ensures 
+            the usability of simulated skills by integrating diverse forms of realistic data into 
+            the simulated environment, preserving semantic alignment with the target 
+            tasks.
+          </p> 
+          <p>
+            For each simulated skill in the environment, DexScale facilitates effective 
+            Sim2Real data scaling by automating the process of domain randomization and 
+            adaptation. Tuned by the scaled dataset, the control policy achieves zero-shot 
+            Sim2Real generalization across diverse tasks, multiple robot embodiments, and 
+            widely studied policy model architectures, highlighting its importance in ad-
+            vancing Sim2Real embodied intelligence
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+    <!--/ Abstract. -->
+
+    <!-- Data Pipeline -->
+    <section class="section">
+    <h3 class="title is-4">Data Scaling Pipeline</h3>
+      <div class="container is-max-widescreen">
+          <div class="rows">
+              <div class="rows is-centered ">
+                  <div class="row is-full-width">
+                      <!-- <img src="static/images/dexsim-flowchart.png" alt="Table showing success rates" style="width: 80%; max-width: 800px; height: auto;"> -->
+                      <img src="static/images/dexsim-flowchart.png" class="interpolation-image" alt="" style="display: block; margin-left: auto; margin-right: auto; max-width: 80%;">
+                      <br>
+                      <span style="font-size: 100%">As a data engine, DexScale takes task-descriptive data as input and generates a skill dataset to support Sim2Real transfer. This enables the zero-shot deployment of robot policies in realistic environments.
+                      </span>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </section>
+    <!--/ Data Pipeline -->
+
+    <!-- Examples -->
+    <section class="section">
+      <h3 class="title is-4">Examples of Data Scaling</h3>
+      <h4 class="title is-4" style="font-size: 1.25em; margin-left: 20px;">Figures:</h4>
+      
+      <div class="container is-max-widescreen">
+        <div class="rows">
+          <div style="text-align: center; ">
+            <p><strong>Data Scaling for Object Grasping</strong></p>
+          </div>
+          <div class="row is-centered">
+            <div class="column is-full">
+              <img src="static/images/exp1-feature-visualization.jpg" class="interpolation-image" alt="" style="display: block; margin-left: auto; margin-right: auto; max-width: 100%; height: auto;">
+            </div>
+          </div>
+
+          <div style="text-align: center; ">
+            <p><strong>Data Scaling for Object Manipulation & Object Re-arrangement</strong></p>
+          </div>
+          <div class="row is-centered">
+            <div class="column is-full">
+              <img src="static/images/exp2-task-visualization.png" class="interpolation-image" alt="" style="display: block; margin-left: auto; margin-right: auto; max-width: 100%; height: auto;">
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <h4 class="title is-4" style="font-size: 1.25em; margin-left: 20px;">Videos:</h4>
+      <div class="container is-max-widescreen">
+        <div class="rows">
+          <!-- First Row: Six videos side by side -->
+          <div style="text-align: center; ">
+            <p><strong>Data Scaling for Object Grasping</strong></p>
+          </div>
+          <div class="row is-centered" style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+            <!-- Video 1 -->
+            <div class="column" style="width: 16%;">
+              <video controls width="100%">
+                <source src="static/videos/grasp_light_dr_.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <!-- <p><strong>Video 1</strong></p> -->
+            </div>
+            <!-- Video 2 -->
+            <div class="column" style="width: 16%;">
+              <video controls width="100%">
+                <source src="static/videos/grasp_obj_dr_.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <!-- <p><strong>Video 2</strong></p> -->
+            </div>
+            <!-- Video 3 -->
+            <div class="column" style="width: 16%;">
+              <video controls width="100%">
+                <source src="static/videos/grasp_table_dr_.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <!-- <p><strong>Video 3</strong></p> -->
+            </div>
+            <!-- Video 4 -->
+            <div class="column" style="width: 16%;">
+              <video controls width="100%">
+                <source src="static/videos/grasp_bg_dr_.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <!-- <p><strong>Video 4</strong></p> -->
+            </div>
+            <!-- Video 5 -->
+            <div class="column" style="width: 16%;">
+              <video controls width="100%">
+                <source src="static/videos/grasp_dis_dr_.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <!-- <p><strong>Video 5</strong></p> -->
+            </div>
+            <!-- Video 6 -->
+            <div class="column" style="width: 16%;">
+              <video controls width="100%">
+                <source src="static/videos/grasp_camera_dr_.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <!-- <p><strong>Video 6</strong></p> -->
+            </div>
+          </div>
+
+          <!-- Second Row: Two videos side by side -->
+          <div style="text-align: center; ">
+            <p><strong>Data Scaling for Object Manipulation</strong></p>
+          </div>
+          
+          <div class="row is-centered" style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+            <div class="column" style="width: 32%; text-align: center;">
+              <video controls width="100%">
+                <source src="static/videos/openbox_3_dr_.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <!-- <p><strong>Video 8</strong></p> -->
+            </div>
+            <div class="column" style="width: 32%; text-align: center;">
+              <video controls width="100%">
+                <source src="static/videos/openbox_1_dr_.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <!-- <p><strong>Video 7</strong></p> -->
+            </div>
+            <div class="column" style="width: 32%;">
+              <video controls width="100%">
+                <source src="static/videos/openbox_2_dr_.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <!-- <p><strong>Video 8</strong></p> -->
+            </div>
+            
+          </div>
+
+
+          <!-- Third Row: Four videos side by side -->
+          <div style="text-align: center; ">
+            <p><strong> Data Scaling for Object Re-arrangement</strong></p>
+          </div>
+          <div class="row is-centered" style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+            <div class="column" style="flex: 1; margin-right: 10px;">
+              <video controls width="100%">
+                <source src="static/videos/rearrangement_1_dr.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <!-- <p><strong>Video 9</strong></p> -->
+            </div>
+            
+            <div class="column" style="flex: 1; margin-right: 10px;">
+              <video controls width="100%">
+                <source src="static/videos/rearrangement_2_dr.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <!-- <p><strong>Video 10</strong></p> -->
+            </div>
+            
+            <div class="column" style="flex: 1; margin-right: 10px;">
+              <video controls width="100%">
+                <source src="static/videos/rearrangement_3_dr.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <!-- <p><strong>Video 11</strong></p> -->
+            </div>
+            
+            <div class="column" style="flex: 1;">
+              <video controls width="100%">
+                <source src="static/videos/rearrangement_4_dr.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <!-- <p><strong>Video 12</strong></p> -->
+            </div>
+          </div> 
+          
+          
+          <!-- Third Row: Four videos side by side -->
+          <div style="text-align: center; ">
+            <p><strong> Data Scaling for Object Grasp-then-Manipulation</strong></p>
+          </div>
+          <div class="row is-centered" style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+            <div class="column" style="flex: 1; margin-right: 10px;">
+              <video controls width="100%">
+                <source src="static/videos/pour_0_dr.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <!-- <p><strong>Video 9</strong></p> -->
+            </div>
+            
+            <div class="column" style="flex: 1; margin-right: 10px;">
+              <video controls width="100%">
+                <source src="static/videos/pour_1_dr.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <!-- <p><strong>Video 10</strong></p> -->
+            </div>
+            
+            <div class="column" style="flex: 1; margin-right: 10px;">
+              <video controls width="100%">
+                <source src="static/videos/pour_2_dr.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <!-- <p><strong>Video 11</strong></p> -->
+            </div>
+            
+            <div class="column" style="flex: 1;">
+              <video controls width="100%">
+                <source src="static/videos/pour_3_dr.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <!-- <p><strong>Video 12</strong></p> -->
+            </div>
+          </div>  
+
+        </div>
+      </div>
+      <span style="font-size: 100%">Figures and Videos above illustrate examples of action trajectories for the tasks of object grasping, box manipulation, 
+        and table rearrangement. To demonstrate the scalability of DexScale, the control policies are 
+        deployed on different robots, including two single-arm robots and a dual-arm robot equipped
+        with wrist-mounted cameras.
+
+    </section>
+    <!--/ Examples -->
+
+
+    
+
+    <!-- Results -->
+    <section class="section">
+    <h3 class="title is-4">Experiment Results</h3>
+    <div class="content has-text-justified">
+
+      <!-- Table and Image in stacked layout (top and bottom) -->
+      <div style="margin-top: 20px;">
+        <!-- Table (PNG) -->
+        <div style="text-align: center; margin-bottom: 20px;">
+          <p><strong>1. Success rates of imitation policies learned by different datasets under various Sim2Real gaps. For the first eight domain gaps, we employ the transformer-based policy <a href="https://tonyzhaozh.github.io/aloha/" target="_blank">Zhao2023ACT</a> to tackle grasping tasks. For the last two domain gaps, we use the diffusion-based policy <a href="https://diffusion-policy.cs.columbia.edu/" target="_blank">Chi2023DiffusionPolicy</a> to address the open-box task.</strong></p>
+          <img src="static/images/Table2.jpg" alt="Table showing success rates" style="width: 80%; max-width: 800px; height: auto;">
+        </div>
+        
+        <!-- Image -->
+        <div style="text-align: center;">
+          <p><strong>2. Robot control performance for different tasks under both realistic (upper) and simulated (lower) environments. The Re-Orientation task is tackeled by a simulation data trained diffusion-based Vision-Language-Action (VLA) model <a href="https://rdt-robotics.github.io/rdt-robotics/" target="_blank">Liu2024RDT</a>  </strong></p>
+          <img src="static/images/exp2-bar-plot.png" alt="Experiment 2 Bar Plot" style="width: 100%; max-width: 500px; height: auto;">
+        </div>
+      </div>
+
+      <!-- Text above the videos -->
+      <div style="text-align: center; margin-bottom: 20px; margin-top: 20px;">
+        <p><strong>3. Real-world deployment videos of policy trained on datasets of different tasks from DexScale.</strong></p>
+      </div>
+  
+      <p style="text-align: center; margin-bottom: 5px; margin-top: 10px;"><strong>Object Grasp</strong></p>
+
+      <div class="row is-centered" style="display: flex; justify-content: space-between; margin-bottom: 1px;">
+        <div class="column" style="flex: 1; margin-right: 10px;">
+            <video controls width="100%">
+                <source src="static/videos/grasp_real_0.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        
+        <div class="column" style="flex: 1; margin-right: 10px;">
+            <video controls width="100%">
+                <source src="static/videos/grasp_real_1_.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        
+        <div class="column" style="flex: 1; margin-right: 10px;">
+            <video controls width="100%">
+                <source src="static/videos/grasp_real_2_.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        
+        <div class="column" style="flex: 1;">
+            <video controls width="100%">
+                <source src="static/videos/grasp_real_3_.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+      </div>
+      
+      <p style="text-align: center; margin-bottom: 5px; margin-top: 10px;"><strong>Object Manipulation</strong></p>
+
+      <div style="display: flex; justify-content: space-between; margin-top: 20px; margin-bottom: 20px;">
+        <!-- Video 1 -->
+        <div style="width: 48%; text-align: center;">
+            <video controls width="100%">
+                <source src="static/videos/openbox_real_0.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        
+        <!-- Video 2 -->
+        <div style="width: 48%; text-align: center;">
+            <video controls width="100%">
+                <source src="static/videos/openbox_real_1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+      </div>
+    
+      <p style="text-align: center; margin-bottom: 5px; margin-top: 10px;"><strong>Object Rearrangement</strong></p>
+      
+      <div style="display: flex; justify-content: space-between; margin-top: 20px; margin-bottom: 20px;">
+          <!-- Video 1 -->
+          <div style="width: 22%; text-align: center;">
+              <video controls width="100%">
+                  <source src="static/videos/rearrangement_real_0.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+              </video>
+          </div>
+          
+          <!-- Video 2 -->
+          <div style="width: 22%; text-align: center;">
+              <video controls width="100%">
+                  <source src="static/videos/rearrangement_real_1.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+              </video>
+          </div>
+
+          <div style="width: 22%; text-align: center;">
+            <video controls width="100%">
+                <source src="static/videos/rearrangement_real_2.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+          </div>
+
+          <div style="width: 22%; text-align: center;">
+            <video controls width="100%">
+                <source src="static/videos/rearrangement_real_2.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+          </div>
+
+      </div>
+
+      <p style="text-align: center; margin-bottom: 5px; margin-top: 10px;"><strong>Object Grasp-then-Manipulation</strong></p>
+
+      <div style="display: flex; justify-content: space-between; margin-top: 20px; margin-bottom: 20px;">
+        <!-- Video 1 -->
+        <div style="width: 48%; text-align: center;">
+            <video controls width="100%">
+                <source src="static/videos/pour_real_0.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        
+        <!-- Video 2 -->
+        <div style="width: 48%; text-align: center;">
+            <video controls width="100%">
+                <source src="static/videos/pour_real_1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+    
+
+
+    </div>
+  </section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/paper/dexsim_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <!-- TODO -->
+      <!-- <a class="icon-link" href="TODO" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a> -->
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <!-- TODO -->
+          <!-- <p>
+            This means you are free to borrow the <a
+              href="TODO">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
