@@ -1,6 +1,6 @@
 # DexScale
 
-This is the repository that contains source code for the [DexScale website](https://dexscale.github.io).
+This is the repository that contains source code for the [DexScale website](https://edem-ai.github.io/dexscale.github.io/).
 
 If you find DexScale useful for your work please cite:
 ```
